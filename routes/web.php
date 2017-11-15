@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');});
+Route::get('/test','TestController@index');
+Route::get('/admin','DashboardControler@index');
+
+Route::get('/main/status.html',['uses' =>'StatusMainController@index']);
+Route::get('/main/status/create.html',['uses' =>'StatusMainController@create']);
+Route::post('/main/status/store',['uses' =>'StatusMainController@store']);
+Route::get('/main/status/show/{id}',['uses' =>'StatusMainController@show']);
+Route::get('/main/status/edit/{id}',['uses' =>'StatusMainController@edit']);
+Route::post('/main/status/update',['uses' =>'StatusMainController@update']);
+Route::get('/main/status/delete/{id}',['uses' =>'StatusMainController@destroy']);
+
+
