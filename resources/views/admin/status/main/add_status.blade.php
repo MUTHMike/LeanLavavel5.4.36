@@ -23,7 +23,7 @@
 		<div class="col-xs-12">
 			<p class="text-center">{!! session('message') !!}</p>
 
-        	<form method="post" action="{{ URL::to('/main/status/store') }}" class="form-horizontal" role="form" id="FormAdd">
+        	<form method="post" action="{{ URL::to('/main/status/store') }}" class="form-horizontal" role="form" id="FormAdd"><input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Title</label>
 					<div class="col-sm-10">

@@ -74,7 +74,6 @@
 	</div><!-- /col-xs-12 -->
   </div><!-- /row -->
   <!-- END TABLE LIST STATUS -->
-	<section/>
 @stop
 
 @section('script')

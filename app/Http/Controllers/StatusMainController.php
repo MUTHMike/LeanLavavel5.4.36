@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tbl_status;
+use App\Http\Requests\StatusRequest;
+
 class StatusMainController extends Controller
 {
     private $status;
@@ -43,13 +45,13 @@ class StatusMainController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StatusRequest $request)
     {
        $this->status->status_title      = $request->txtName;
        $this->status->status_description= $request->txtDescription;
        $this->status->status_author     = "admin";
-       $this->status->created_at = $request->date;
-       $this->status->updated_at = $request->date;
+       $this->status->created_at = $this->date;
+       $this->status->updated_at = $this->date;
        $this->status->save();
        $request->session()->flash('message','<div class="alert alert-success">Inserted new data</div>');
        return back();
@@ -106,7 +108,6 @@ class StatusMainController extends Controller
                 "status_author"      => "Admin",
                 "status"             => $request->txtStatus,
                 "updated_at"         => $this->date,
-                "created_at"         => $this->date,
             ]);
             return redirect('/main/status.html');
         } else  {
